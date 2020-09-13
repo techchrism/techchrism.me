@@ -43,7 +43,7 @@
         components: {ThemeSwitcher},
         mounted()
         {
-            this.theme = localStorage.getItem('theme') || 'theme-light';
+            this.theme = localStorage.getItem('theme') || 'theme-dark';
         },
         data()
         {
