@@ -9,7 +9,7 @@ import {faGithub, faLastfm, faTwitter} from '@fortawesome/free-brands-svg-icons'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 require('typeface-nunito-sans');
 
-config.autoAddCss = false;
+//config.autoAddCss = false;
 library.add(faGithub, faLink, faPlug, faLastfm, faTwitter);
 
 export default function(Vue, {router, head, isClient})
