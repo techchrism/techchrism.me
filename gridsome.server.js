@@ -41,7 +41,7 @@ module.exports = function(api, options)
         projects.addNode({
             name: 'Chill',
             source: 'https://github.com/techchrism/chill',
-            url: 'https://techchrism.github.io/chill/',
+            url: 'https://chill.techchrism.me',
             description: 'Relaxing website with animations, music, and sound effects',
             image: require.resolve('./src/assets/projects/chill.png')
         });
