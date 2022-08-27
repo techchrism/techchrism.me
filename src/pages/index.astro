@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Project from '../components/Project.astro';
 import { projects } from '../projects';
+import Divider from '../components/Divider.astro';
 ---
 
 <Layout title="Home">
@@ -9,10 +10,16 @@ import { projects } from '../projects';
 		<h1>Hi, I'm Chris</h1>
 		<h2 class="mb-2">I make robots, webapps, Minecraft plugins, Discord bots, and just about everything else.</h2>
 		
+		<Divider>Some of my favorite projects</Divider>
+
 		<ul role="list">
 			{projects.map(project => (
 				<Project project={project}/>
 			))}
 		</ul>
+
+		<Divider>
+			<a href="https://github.com/techchrism?tab=repositories&q=&type=&language=&sort=stargazers" rel="noopener">Find more on my GitHub</a>
+		</Divider>
 	</main>
 </Layout>
