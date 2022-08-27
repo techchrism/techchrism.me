@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Project from '../components/Project.astro';
 import { projects } from '../projects';
 import Divider from '../components/Divider.astro';
+import { Icon } from 'astro-icon';
 ---
 
 <Layout title="Home">
@@ -10,6 +11,21 @@ import Divider from '../components/Divider.astro';
 		<h1>Hi, I'm Chris</h1>
 		<h2 class="mb-2">I make robots, webapps, Minecraft plugins, Discord bots, and just about everything else.</h2>
 		
+		<ul class="text-xl space-y-2 mx-1">
+			<li>
+				<Icon name="ic:outline-email" size={'1em'} class="inline mx-1"/>
+				<a href="mailto:chris@techchrism.me">chris@techchrism.me</a>
+			</li>
+			<li>
+				<Icon name="akar-icons:github-fill" size={'1em'} class="inline mx-1"/>
+				<a href="https://github.com/techchrism">@techchrism</a>
+			</li>
+			<li>
+				<Icon name="akar-icons:discord-fill" size={'1em'} class="inline mx-1"/>
+				Techdoodle#2641
+			</li>
+		</ul>
+
 		<Divider>Some of my favorite projects</Divider>
 
 		<ul role="list">
