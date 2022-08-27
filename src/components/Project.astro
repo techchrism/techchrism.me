@@ -1,6 +1,7 @@
 ---
 import { Icon } from 'astro-icon';
 import type { Project } from '../projects';
+import { Image, Picture } from '@astrojs/image/components';
 
 export interface Props {
 	project: Project;
@@ -11,10 +12,10 @@ const {project} = Astro.props;
 
 <!-- Adapted from the Astro Card component -->
 <li class="link-card shadow-md">
-	<a href={project.repository} class="flex">
+	<a href={project.repository} class="flex gap-4">
         {project.picture && <>
             <div class="flex-col self-center">
-                <img src={project.picture} alt={project.name} class="w-16 h-16 rounded-full" />
+                <Image src={project.picture} alt={project.name} height={100} class="w-16 h-16 rounded-lg" />
             </div>
         </>}
         <div class="flex-col flex-grow">
@@ -54,8 +55,7 @@ const {project} = Astro.props;
 		padding: 1em 1.3em;
 		border-radius: 0.35rem;
 		color: var(--text-color);
-		background-color: white;
-		opacity: 0.8;
+		background-color: rgb(255, 255, 255, 0.8);
 	}
 
 	p {
