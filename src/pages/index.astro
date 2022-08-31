@@ -28,7 +28,7 @@ import { Icon } from 'astro-icon';
 
 		<Divider>Some of my favorite projects</Divider>
 
-		<ul role="list">
+		<ul role="list" class="flex flex-col gap-3">
 			{projects.map(project => (
 				<Project project={project}/>
 			))}
