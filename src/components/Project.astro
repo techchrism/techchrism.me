@@ -10,15 +10,20 @@ export interface Props {
 const {project} = Astro.props;
 ---
 
-<!-- Adapted from the Astro Card component -->
+{ /* Adapted from the Astro Card component */ }
 <li class="link-card shadow-md
 		[--link-gradient:linear-gradient(45deg,#4f39fa,#da62c4_30%,#e2e8f0_60%)]
 		dark:[--link-gradient:linear-gradient(45deg,#4f39fa,#da62c4_30%,#334155_60%)]
 		">
 	<a href={project.repository} class="flex gap-4 bg-white-transparent dark:bg-black-transparent">
         {project.picture && <>
-            <div class="flex-col self-center">
-                <Image src={project.picture} alt={project.name} height={100} class="min-w-[4rem] w-16 h-16 rounded-lg" />
+            <div class="flex-col self-center min-w-[4rem] max-w-[4rem] w-16 h-16 rounded-lg">
+                <Picture
+					src={project.picture}
+					alt={project.name}
+					widths={[32, 64, 128, 512]}
+					aspectRatio="1:1"
+					sizes="4 rem"/>
             </div>
         </>}
         <div class="flex-col flex-grow text-slate-900 dark:text-slate-50">
