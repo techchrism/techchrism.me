@@ -1,0 +1,81 @@
+---
+import { Icon } from 'astro-icon';
+import type { Project } from '../projects';
+import { Image, Picture } from '@astrojs/image/components';
+
+export interface Props {
+	project: Project;
+}
+
+const {project} = Astro.props;
+---
+
+<!-- Adapted from the Astro Card component -->
+<li class="link-card shadow-md
+		[--link-gradient:linear-gradient(45deg,#4f39fa,#da62c4_30%,#e2e8f0_60%)]
+		dark:[--link-gradient:linear-gradient(45deg,#4f39fa,#da62c4_30%,#334155_60%)]
+		">
+	<a href={project.repository} class="flex gap-4 bg-white-transparent dark:bg-black-transparent">
+        {project.picture && <>
+            <div class="flex-col self-center">
+                <Image src={project.picture} alt={project.name} height={100} class="min-w-[4rem] w-16 h-16 rounded-lg" />
+            </div>
+        </>}
+        <div class="flex-col flex-grow text-slate-900 dark:text-slate-50">
+            <h2>
+                <Icon name="akar-icons:github-fill" size={'1rem'} class="inline align-baseline"/>
+                {project.name}
+                <span>
+                    &rarr;
+                </span>
+            </h2>
+            <p class="mt-1">
+                {project.description.split('\n').map((line, i) => (
+					<>
+						{line}
+						{i < project.description.split('\n').length - 1 && <br />}
+					</>
+				))}
+            </p>
+        </div>
+	</a>
+</li>
+<style>
+	.link-card {
+		list-style: none;
+		display: flex;
+		padding: 0.25rem;
+		background-image: var(--link-gradient);
+		background-size: 400%;
+		border-radius: 0.5rem;
+		background-position: 99%;
+		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	.link-card > a {
+		width: 100%;
+		text-decoration: none;
+		line-height: 1.4;
+		padding: 1em 1.3em;
+		border-radius: 0.35rem;
+		
+	}
+
+    a span {
+		display: inline-block;
+		transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	.link-card:is(:hover, :focus-within) {
+		background-position: 0;
+	}
+
+	.link-card:is(:hover, :focus-within) h2 {
+		color: #4f39fa;
+	}
+
+	.link-card:is(:hover, :focus-within) a span {
+		will-change: transform;
+		transform: translateX(2px);
+	}
+</style>

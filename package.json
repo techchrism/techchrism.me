@@ -1,18 +1,19 @@
 {
   "name": "techchrism.me",
-  "license": "MIT",
+  "author": "techchrism",
+  "version": "0.0.1",
+  "private": true,
   "scripts": {
-    "build": "gridsome build",
-    "develop": "gridsome develop",
-    "explore": "gridsome explore"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
-  "dependencies": {
-    "gridsome": "^0.7.15",
-    "typeface-nunito-sans": "0.0.72",
-    "@fortawesome/free-solid-svg-icons": "^5.14.0",
-    "@fortawesome/fontawesome-svg-core": "^1.2.30",
-    "@fortawesome/free-brands-svg-icons": "^5.14.0",
-    "@fortawesome/vue-fontawesome": "^2.0.0",
-    "gridsome-plugin-tailwindcss": "^2.2.48"
+  "devDependencies": {
+    "@astrojs/image": "^0.3.6",
+    "@astrojs/tailwind": "^1.0.0",
+    "astro": "^1.1.0",
+    "astro-icon": "^0.7.3"
   }
 }
