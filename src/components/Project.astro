@@ -11,14 +11,17 @@ const {project} = Astro.props;
 ---
 
 <!-- Adapted from the Astro Card component -->
-<li class="link-card shadow-md">
-	<a href={project.repository} class="flex gap-4">
+<li class="link-card shadow-md
+		[--link-gradient:linear-gradient(45deg,#4f39fa,#da62c4_30%,#e2e8f0_60%)]
+		dark:[--link-gradient:linear-gradient(45deg,#4f39fa,#da62c4_30%,#334155_60%)]
+		">
+	<a href={project.repository} class="flex gap-4 bg-white-transparent dark:bg-black-transparent">
         {project.picture && <>
             <div class="flex-col self-center">
                 <Image src={project.picture} alt={project.name} height={100} class="min-w-[4rem] w-16 h-16 rounded-lg" />
             </div>
         </>}
-        <div class="flex-col flex-grow">
+        <div class="flex-col flex-grow text-slate-900 dark:text-slate-50">
             <h2>
                 <Icon name="akar-icons:github-fill" size={'1rem'} class="inline align-baseline"/>
                 {project.name}
@@ -38,10 +41,6 @@ const {project} = Astro.props;
 	</a>
 </li>
 <style>
-	:root {
-		--link-gradient: linear-gradient(45deg, #4f39fa, #da62c4 30%, var(--color-border) 60%);
-	}
-
 	.link-card {
 		list-style: none;
 		display: flex;
@@ -59,8 +58,7 @@ const {project} = Astro.props;
 		line-height: 1.4;
 		padding: 1em 1.3em;
 		border-radius: 0.35rem;
-		color: var(--text-color);
-		background-color: rgb(255, 255, 255, 0.8);
+		
 	}
 
     a span {
