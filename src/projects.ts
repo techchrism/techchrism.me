@@ -7,6 +7,7 @@ import KattisImage from "./assets/kattis.png";
 
 export interface Project {
     repository: string
+    url?: string
     name: string
     description: string
     picture?: ImageMetadata
@@ -20,7 +21,8 @@ export const projects: Project[] = [
         picture: AutoSumoImage
     },
     {
-        repository: 'https://github.com/techchrism/valorant-api-docs/tree/trunk/docs',
+        repository: 'https://github.com/techchrism/valorant-api-docs',
+        url: 'https://valapidocs.techchrism.me/',
         name: 'Valorant API Docs',
         description: 'Automatically-generated documentation for the internal Valorant API. Includes an Insomnia workspace that integrates with a plugin to bring game values into placeholders.',
         picture: ValorantAPIDocsImage
