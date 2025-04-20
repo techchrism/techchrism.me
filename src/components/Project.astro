@@ -1,7 +1,7 @@
 ---
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon/components';
 import type { Project } from '../projects';
-import { Image, Picture } from '@astrojs/image/components';
+import { Picture } from 'astro:assets';
 
 export interface Props {
 	project: Project;
@@ -22,7 +22,6 @@ const {project} = Astro.props;
 					src={project.picture}
 					alt={project.name}
 					widths={[32, 64, 80, 128, 512]}
-					aspectRatio="1:1"
 					sizes="4rem"/>
             </div>
         </>}
