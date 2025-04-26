@@ -1,0 +1,19 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import { getTagsByPost } from "./[tag].astro"
+import slugify from 'slugify'
+
+const tags = await getTagsByPost()
+const sortedTags = [...tags.entries()].sort((a, b) => b[1].length - a[1].length)
+---
+<Layout title="Tags">
+    <h1>Tags</h1>
+    <ol class="text-xl">
+        {sortedTags.map(([tag, posts]) => (
+            <li>
+                <span class="font-light">({posts.length})</span> <a href={'./' + slugify(tag)}>{tag}</a>
+            </li>
+        ))}
+    </ol>
+    
+</Layout>

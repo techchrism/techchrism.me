@@ -1,0 +1,28 @@
+---
+const currentPath = Astro.url.pathname
+
+const locations: {name: string, path: string}[] = [
+    {name: 'Home', path: '/'},
+    {name: 'Tags', path: '/tags/'},
+    {name: 'Blog', path: '/blog/'}
+]
+---
+<nav class="bg-slate-200 dark:bg-slate-950 font-medium">
+    <ol class="m-auto px-4 max-w-screen-lg min-h-16 text-left flex flex-row items-center gap-6">
+        <li>
+            <a href="/" class="uppercase font-light text-slate-900 dark:text-slate-50 hover:text-slate-600 dark:hover:text-slate-400">Chris M</a>
+        </li>
+        <li class="flex-grow"/>
+        {locations.map(location => (
+            <li>
+                <a
+                    href={location.path}
+                    class="text-slate-900 dark:text-slate-50 hover:text-slate-600 dark:hover:text-slate-400"
+                    class:list={currentPath === location.path ? [' border-b-2 border-slate-900 dark:border-slate-50'] : []}
+                >
+                    {location.name}
+                </a>
+            </li>
+        ))}
+    </ol>
+</nav>

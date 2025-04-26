@@ -1,0 +1,37 @@
+---
+import { getCollection, render } from "astro:content"
+import Layout from '../../layouts/Layout.astro'
+import UTCDate from "../../components/UTCDate.astro"
+import slugify from 'slugify'
+
+export async function getStaticPaths() {
+    const posts = await getCollection('blog')
+
+    return posts.map((post) => ({
+        params: {slug: post.id},
+        props: {post}
+    }))
+}
+
+const {post} = Astro.props
+const {Content} = await render(post)
+---
+
+<Layout title={post.data.title}>
+    <article>
+        <header class="mb-8">
+            <h1>{post.data.title}</h1>
+            <div>Posted on <UTCDate date={post.data.date}/></div>
+            {post.data.tags !== undefined && <ul>
+                {post.data.tags.map(tag => (
+                    <li class="inline">
+                        <a href={'/tags/' + slugify(tag)}>#{tag}</a>
+                    </li>
+                ))}
+            </ul>}
+        </header>
+        <div class="leading-relaxed">
+            <Content/>
+        </div>
+    </article>
+</Layout>

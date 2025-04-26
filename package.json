@@ -13,7 +13,8 @@
   "devDependencies": {
     "@astrojs/tailwind": "^6.0.2",
     "astro": "^5.7.4",
-    "astro-icon": "^1.1.5"
+    "astro-icon": "^1.1.5",
+    "slugify": "^1.6.6"
   },
   "dependencies": {
     "@iconify-json/akar-icons": "^1.2.2",
